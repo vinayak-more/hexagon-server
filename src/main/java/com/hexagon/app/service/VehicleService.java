@@ -26,9 +26,9 @@ public class VehicleService {
         return repository.save(vehicle);
     }
 
-    public void delete(long id) {
+    public Vehicle delete(long id) {
         Vehicle vehicle = repository.findById(id).get();
         vehicle.setActive(false);
-        repository.save(vehicle);
+        return repository.save(vehicle);
     }
 }
