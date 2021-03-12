@@ -22,7 +22,8 @@ public class VehicleService {
         return repository.save(vehicle);
     }
 
-    public Vehicle update(Vehicle vehicle) {
+    public Vehicle update(Vehicle vehicle, long id) {
+        vehicle.setId(id);
         return repository.save(vehicle);
     }
 

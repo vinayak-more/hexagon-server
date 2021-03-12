@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/vehicles")
 public class VehicleController {
@@ -28,7 +27,7 @@ public class VehicleController {
     @PutMapping("/{id}")
     public Vehicle update(@RequestBody Vehicle vehicle, @PathVariable("id") Long id){
         vehicle.setId(id);
-        return service.save(vehicle);
+        return service.update(vehicle, id);
     }
 
     @DeleteMapping("/{id}")
