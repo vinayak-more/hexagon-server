@@ -9,8 +9,8 @@ import javax.persistence.MappedSuperclass;
 public abstract class IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private boolean isActive;
+    protected long id;
+    protected boolean isActive;
 
     public long getId() {
         return id;
