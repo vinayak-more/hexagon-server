@@ -5,6 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 
-public interface DriverRepository  extends JpaRepository<Driver, Long> {
-    public Collection<Driver> findAllByIsActive(boolean isActive);
+public interface DriverRepository  extends IEntityRepository<Driver> {
 }

@@ -1,6 +1,7 @@
 package com.hexagon.app.controller;
 
 import com.hexagon.app.model.Vehicle;
+import com.hexagon.app.service.IEntityService;
 import com.hexagon.app.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,29 +10,14 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/vehicles")
-public class VehicleController {
+public class VehicleController extends IEntityController<Vehicle> {
 
     @Autowired
     private VehicleService service;
 
-    @GetMapping()
-    public Collection<Vehicle> getAll() {
-        return service.getAll();
+    @Override
+    public IEntityService<Vehicle> getService() {
+        return service;
     }
 
-    @PostMapping()
-    public Vehicle add(@RequestBody Vehicle vehicle) {
-        return service.save(vehicle);
-    }
-
-    @PutMapping("/{id}")
-    public Vehicle update(@RequestBody Vehicle vehicle, @PathVariable("id") Long id){
-        vehicle.setId(id);
-        return service.update(vehicle, id);
-    }
-
-    @DeleteMapping("/{id}")
-    public Vehicle delete(@PathVariable("id") Long id){
-        return service.delete(id);
-    }
 }

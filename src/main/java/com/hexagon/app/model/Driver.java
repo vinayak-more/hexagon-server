@@ -6,24 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Driver {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class Driver extends IEntity {
 
     private String name;
     private String licenseNumber;
     private long mobile;
-    private boolean isActive;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -47,14 +34,6 @@ public class Driver {
 
     public void setMobile(long mobile) {
         this.mobile = mobile;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
     }
 
     @Override
