@@ -15,6 +15,12 @@ public abstract class IEntityController<T extends IEntity> {
     public Collection<T> getAll() {
         return getService().getAll();
     }
+
+    @GetMapping("/all")
+    public Collection<T> getAllEntities() {
+        return getService().getAllEntities();
+    }
+
     @PostMapping()
     public T save(@RequestBody T entity){
         return getService().save(entity);

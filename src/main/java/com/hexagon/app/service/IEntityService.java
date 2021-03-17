@@ -30,4 +30,7 @@ public interface IEntityService<T extends IEntity> {
         return getRepository().save(entity);
     }
 
+    default Collection<T> getAllEntities(){
+        return getRepository().findAll();
+    }
 }
