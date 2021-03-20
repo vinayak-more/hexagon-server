@@ -1,6 +1,7 @@
 package com.hexagon.app.model;
 
 import javax.persistence.Entity;
+import java.util.Objects;
 
 @Entity
 public class Vehicle extends IEntity {
@@ -22,6 +23,19 @@ public class Vehicle extends IEntity {
 
     public void setRegistration(String registration) {
         this.registration = registration;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Objects.equals(id, vehicle.id) ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
