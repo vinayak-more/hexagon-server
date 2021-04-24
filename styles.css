@@ -1,0 +1,225 @@
+body {
+  font-family: "Segoe UI";
+  line-height: 1.5;
+  font-size: 12px;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  width:100%;
+}
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-md-1 {
+  -ms-flex: 0 0 8.333333%;
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+.col-md-2 {
+  -ms-flex: 0 0 16.666667%;
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+.col-md-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.col-md-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.col-md-5 {
+  -ms-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+.col-md-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.col-md-7 {
+  -ms-flex: 0 0 58.333333%;
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+.col-md-8 {
+  -ms-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+.col-md-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+.col-md-10 {
+  -ms-flex: 0 0 83.333333%;
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+.col-md-11 {
+  -ms-flex: 0 0 91.666667%;
+  flex: 0 0 91.666667%;
+  max-width: 91.666667%;
+}
+.col-md-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+  height: 100%
+}
+@page {
+    size: a4;
+}
+
+/* Custom CSS */
+.title {
+  color: red;
+  text-transform: uppercase;
+  font-size: 35px;
+  text-align: center;
+}
+.tel {
+  font-weight: bold;
+  font-style: italic;
+  float: left;
+  margin-top:0px
+}
+
+.fleet {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+}
+
+.address {
+  width: 100%;
+  text-align: center;
+}
+
+.bordered {
+  border-top: 1px solid black;
+  border-bottom: none;
+}
+
+.bordered > div:nth-child(1) {
+  border-left: 1px solid black;
+}
+
+.bordered > div {
+  border-right: 1px solid black;
+}
+
+.trips {
+  border-bottom: 1px solid black;
+  padding: 0 15px;
+  text-align: center;
+  line-height: 1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.rate {
+  text-align: right;
+}
+
+.total {
+  text-align: right;
+  font-weight: bold;
+}
+
+.signature {
+  text-align: center;
+}
+
+.trips-table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.v-top {
+    vertical-align: top;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.trips-table>table {
+}
+.trips-table th, .trips-table td {
+    border: 1px solid black;
+}
