@@ -30,6 +30,7 @@ public class Trip extends IEntity {
     private long endKm;
     private double cost;
     private Date tripDate;
+    private String shift;
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -103,4 +104,11 @@ public class Trip extends IEntity {
         this.tripDate = tripDate;
     }
 
+    public String getShift() {
+        return shift;
+    }
+
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
 }

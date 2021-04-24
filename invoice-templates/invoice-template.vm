@@ -14,7 +14,7 @@
                     <img class="logo" src="logo.jpg"/>
                 </td>
                 <td class="col-md-6">
-                    <h4 class="title">$title</h4>
+                    <h4 class="title">Sakharam G. More</h4>
                 </td>
                 <td rowspan="2" class="col-md-2 tel">
                     <div>Tel: 9323571023</div>
@@ -42,26 +42,26 @@
                 <td class="col-md-6" rowspan="3">
                     <div>M/S.</div>
                     <div>
-                        <div>Bluedart Enterprise</div>
-                        <div>Navneet Education MIDC</div>
+                        <div>$client.name</div>
+                        <div>$client.address</div>
                     </div>
                 </td>
                 <td class="col-md-3">Bill No.</td>
-                <td class="col-md-1">1</td>
+                <td class="col-md-1">$invoice.invoiceNumber</td>
                 <td class="col-md-1">Date:</td>
-                <td class="col-md-1">21/04/2021</td>
+                <td class="col-md-1">$dateUtils.parse($invoice.invoiceDate)</td>
             </tr>
             <tr>
                 <td class="col-md-3">Our Challan No.</td>
-                <td class="col-md-1">1</td>
+                <td class="col-md-1"></td>
                 <td class="col-md-1">Date:</td>
-                <td class="col-md-1">21/04/2021</td>
+                <td class="col-md-1"></td>
             </tr>
             <tr class="row">
                 <td class="col-md-3">Your Challan No.</td>
-                <td class="col-md-1">1</td>
+                <td class="col-md-1"></td>
                 <td class="col-md-1">Date:</td>
-                <td class="col-md-1">21/04/2021</td>
+                <td class="col-md-1"></td>
             </tr>
         </table>
         <hr/>
@@ -78,39 +78,21 @@
             </tr>
             </thead>
             <tbody>
+            #foreach($trip in $trips)
+            #set( $vehicle = ${trip.getVehicle()})
             <tr class="row ">
-                <td class="col-md-2">01/04/2021</td>
-                <td class="col-md-2">Day</td>
-                <td class="col-md-3">TATA 407</td>
-                <td class="col-md-3">MH 48 T 6689</td>
-                <td class="col-md-2 rate">1500</td>
+                <td class="col-md-2">$dateUtils.parse($trip.tripDate)</td>
+                <td class="col-md-2">$!trip.getShift()</td>
+                <td class="col-md-3">$vehicle.name</td>
+                <td class="col-md-3">$vehicle.registration</td>
+                <td class="col-md-2 rate">$trip.cost</td>
             </tr>
-            <tr class="row ">
-                <td class="col-md-2">02/04/2021</td>
-                <td class="col-md-2">Day</td>
-                <td class="col-md-3">TATA 407</td>
-                <td class="col-md-3">MH 48 T 6689</td>
-                <td class="col-md-2 rate">1500</td>
-            </tr>
-            <tr class="row ">
-                <td class="col-md-2">03/04/2021</td>
-                <td class="col-md-2">Day</td>
-                <td class="col-md-3">TATA 407</td>
-                <td class="col-md-3">MH 48 T 6689</td>
-                <td class="col-md-2 rate">1500</td>
-            </tr>
-            <tr class="row ">
-                <td class="col-md-2">04/04/2021</td>
-                <td class="col-md-2">Day</td>
-                <td class="col-md-3">TATA 407</td>
-                <td class="col-md-3">MH 48 T 6689</td>
-                <td class="col-md-2 rate">1500</td>
-            </tr>
+            #end
             </tbody>
             <tfoot>
             <tr class="row  border-bottom">
                 <td colspan="4" class="col-md-10 total">Total</td>
-                <td class="col-md-2 rate">6000</td>
+                <td class="col-md-2 rate">$invoiceCost</td>
             </tr>
             </tfoot>
         </table>
@@ -119,7 +101,7 @@
         <div class="row" style="margin-top: 10px; text-align:left">
             <div class="col-md-12">
                 <span class="bold">Particulars:</span>
-                Local Delivery to Bombay Hub
+                $!invoice.particulars
             </div>
         </div>
         <hr/>
@@ -127,7 +109,7 @@
     <div class="container">
         <table class="row">
             <tr>
-                <td class="col-md-8 v-top">Rs. Six Thousand Only</td>
+                <td class="col-md-8 v-top">Rs. ${invoiceCostWords} Only</td>
                 <td class="col-md-4">
                     <br/><br/><br/><br/>
                     <div class="signature">

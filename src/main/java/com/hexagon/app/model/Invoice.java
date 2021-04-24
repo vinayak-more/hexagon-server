@@ -9,9 +9,11 @@ public class Invoice extends IEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long invoiceNumber;
+    private Date invoiceDate;
     private Date fromDate;
     private Date toDate;
     private double fuelRate;
+    private String particulars;
     @ManyToOne
     @JoinColumn(name="vehicle_id", referencedColumnName = "id")
     private Vehicle vehicle;
@@ -77,5 +79,21 @@ public class Invoice extends IEntity {
 
     public void setTrips(Collection<Trip> trips) {
         this.trips = trips;
+    }
+
+    public Date getInvoiceDate() {
+        return invoiceDate;
+    }
+
+    public void setInvoiceDate(Date invoiceDate) {
+        this.invoiceDate = invoiceDate;
+    }
+
+    public String getParticulars() {
+        return particulars;
+    }
+
+    public void setParticulars(String particulars) {
+        this.particulars = particulars;
     }
 }
