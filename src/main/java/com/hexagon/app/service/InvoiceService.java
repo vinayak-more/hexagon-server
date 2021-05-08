@@ -23,7 +23,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
 
 @Service
-public class InvoiceService implements IEntityService<Invoice> {
+public class InvoiceService extends IEntityService<Invoice> {
     static {
         Velocity.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
         Velocity.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());

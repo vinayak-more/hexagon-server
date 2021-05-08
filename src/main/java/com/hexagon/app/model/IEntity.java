@@ -1,9 +1,8 @@
 package com.hexagon.app.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class IEntity {
@@ -11,6 +10,11 @@ public abstract class IEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
     protected boolean isActive;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName = "id")
+    protected User user;
 
     public long getId() {
         return id;
@@ -26,5 +30,13 @@ public abstract class IEntity {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

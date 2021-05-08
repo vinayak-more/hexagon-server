@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Service
-public class TripService implements IEntityService<Trip> {
+public class TripService extends IEntityService<Trip> {
     @Autowired
     private TripRepository repository;
 

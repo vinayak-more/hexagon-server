@@ -1,36 +1,50 @@
 package com.hexagon.app.service;
 
 import com.hexagon.app.model.IEntity;
+import com.hexagon.app.model.User;
 import com.hexagon.app.repository.IEntityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collection;
 
-public interface IEntityService<T extends IEntity> {
+public abstract class IEntityService<T extends IEntity> {
 
-    IEntityRepository<T> getRepository();
+    abstract IEntityRepository<T> getRepository();
 
-    default Collection<T> getAll() {
-        return getRepository().findAllByIsActive(true);
+    @Autowired
+    private UserService userService;
+
+    public Collection<T> getAll() {
+        return getRepository().findAllByIsActiveAndUser(true,getCurrentUser());
     }
 
-    default T save(T entity) {
+    public T save(T entity) {
+        entity.setUser(getCurrentUser());
         entity.setId(0);
         entity.setActive(true);
         return getRepository().save(entity);
     }
 
-    default T update(T entity, long id) {
+    protected User getCurrentUser(){
+        Authentication user=  SecurityContextHolder.getContext().getAuthentication();
+        return userService.findByUsername(user.getName());
+    }
+
+    public T update(T entity, long id) {
         entity.setId(id);
+        entity.setUser(getCurrentUser());
         return getRepository().save(entity);
     }
 
-    default T delete(long id) {
+    public T delete(long id) {
         T entity = getRepository().findById(id).get();
         entity.setActive(false);
         return getRepository().save(entity);
     }
 
-    default Collection<T> getAllEntities(){
-        return getRepository().findAll();
+    public Collection<T> getAllEntities() {
+        return getRepository().findAllByUser(getCurrentUser());
     }
 }

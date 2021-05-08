@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-public class VehicleService implements IEntityService<Vehicle> {
+public class VehicleService extends IEntityService<Vehicle> {
 
     @Autowired
     private VehicleRepository repository;

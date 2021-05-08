@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
-public class UserService implements UserDetailsService, IEntityService<User> {
+public class UserService extends IEntityService<User> implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
@@ -27,6 +27,10 @@ public class UserService implements UserDetailsService, IEntityService<User> {
         User user = repository.findByUsername(username);
         if(user==null) throw new UsernameNotFoundException("User Not found for username:"+username);
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),new ArrayList<>());
+    }
+
+    public User findByUsername(String username){
+        return repository.findByUsername(username);
     }
 
     @Override
