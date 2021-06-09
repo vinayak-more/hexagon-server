@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/grid.css" type="text/css"/>
+</head>
+<body>
+<div id="wraper">
+    <div class="container">
+        <table class="row">
+            <tr>
+                <td class="col-md-2" rowspan="2">
+                    <img class="logo" src="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/logo.jpg"/>
+                </td>
+                <td class="col-md-6">
+                    <h4 class="title">Sakharam G. More</h4>
+                </td>
+                <td rowspan="2" class="col-md-2 tel">
+                    <div>Tel: 9323571023</div>
+                    <div>PAN: AJZPM1222P</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-6 fleet">
+                    Fleet Owners and Transport Contractor
+                </td>
+            </tr>
+
+        </table>
+        <hr/>
+        <div class="row">
+            <div class="col-md-12 address">
+                1314, B3/G Wing, Lotus CHS, Near Kanakia Wall Street, Andheri Kurla Road, Chakala, Andheri East,
+                Mumbai 400093
+            </div>
+        </div>
+        <hr/>
+        <hr/>
+        <table class="col-md-12 txt-left">
+            <tr>
+                <td class="col-md-6" rowspan="3">
+                    <div>M/S.</div>
+                    <div>
+                        <div>$client.name</div>
+                        <div>$client.address</div>
+                    </div>
+                </td>
+                <td class="col-md-3">Bill No.</td>
+                <td class="col-md-1">$invoice.invoiceNumber</td>
+                <td class="col-md-1">Date:</td>
+                <td class="col-md-1">$dateUtils.parse($invoice.invoiceDate)</td>
+            </tr>
+            <tr>
+                <td class="col-md-3">Our Challan No.</td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1">Date:</td>
+                <td class="col-md-1"></td>
+            </tr>
+            <tr class="row">
+                <td class="col-md-3">Your Challan No.</td>
+                <td class="col-md-1"></td>
+                <td class="col-md-1">Date:</td>
+                <td class="col-md-1"></td>
+            </tr>
+        </table>
+        <hr/>
+    </div>
+    <div class="container">
+        <table border="1" class="trips-table">
+            <thead class="row  bold">
+            <tr>
+                <th class="col-md-2">Date</th>
+                <th class="col-md-2">Shift</th>
+                <th class="col-md-3">Type of Vehicle</th>
+                <th class="col-md-3">Vehicle Number</th>
+                <th class="col-md-2">Rate</th>
+            </tr>
+            </thead>
+            <tbody>
+            #foreach($trip in $trips)
+            #set( $vehicle = ${trip.getVehicle()})
+            <tr class="row ">
+                <td class="col-md-2">$dateUtils.parse($trip.tripDate)</td>
+                <td class="col-md-2">$!trip.getShift()</td>
+                <td class="col-md-3">$vehicle.name</td>
+                <td class="col-md-3">$vehicle.registration</td>
+                <td class="col-md-2 rate">$trip.cost</td>
+            </tr>
+            #end
+            </tbody>
+            <tfoot>
+            <tr class="row  border-bottom">
+                <td colspan="4" class="col-md-10 total">Total</td>
+                <td class="col-md-2 rate">$invoiceCost</td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row" style="margin-top: 10px; text-align:left">
+            <div class="col-md-12">
+                <span class="bold">Particulars:</span>
+                $!invoice.particulars
+            </div>
+        </div>
+        <hr/>
+    </div>
+    <div class="container">
+        <table class="row">
+            <tr>
+                <td class="col-md-8 v-top">Rs. ${invoiceCostWords} Only</td>
+                <td class="col-md-4">
+                    <br/><br/><br/><br/>
+                    <div class="signature">
+                        <div>For
+                            <div class="bold">SAKHARAM G MORE</div>
+                            <div>
+                                <div>Proprietor</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>
