@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/styles.css" type="text/css"/>
-    <link rel="stylesheet" href="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/grid.css" type="text/css"/>
+    <link rel="stylesheet" href="src/main/resources/invoice-templates/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="src/main/resources/invoice-templates/grid.css" type="text/css"/>
 </head>
 <body>
 <div id="wraper">
@@ -11,7 +11,7 @@
         <table class="row">
             <tr>
                 <td class="col-md-2" rowspan="2">
-                    <img class="logo" src="https://ims-invoice-templates.s3.ap-south-1.amazonaws.com/invoice-templates/logo.jpg"/>
+                    <img class="logo" src="src/main/resources//invoice-templates/logo.jpg"/>
                 </td>
                 <td class="col-md-6">
                     <h4 class="title">Sakharam G. More</h4>
