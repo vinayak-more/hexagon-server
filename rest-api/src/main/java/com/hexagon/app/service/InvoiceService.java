@@ -46,6 +46,7 @@ public class InvoiceService extends IEntityService<Invoice> {
     public byte[] generateInvoice(long invoiceId) throws Exception {
         Invoice invoice = repository.getOne(invoiceId);
         StringWriter sw = parseVelocityTemplate(invoice);
+        System.out.println(sw);
         ConverterProperties props = new ConverterProperties();
         props.setMediaDeviceDescription(new MediaDeviceDescription(com.itextpdf.styledxmlparser.css.media.MediaType.PRINT));
         // HTML file to PDF

@@ -20,7 +20,7 @@ const Invoice = (props) => {
         <Col>
           <Button onClick={() => setShowForm(true)}>
             <FiPlus className="mb-1 mr-1" />
-            Add
+            Create Invoice
           </Button>
         </Col>
       </Row>
